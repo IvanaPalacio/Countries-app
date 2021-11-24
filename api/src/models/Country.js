@@ -7,22 +7,22 @@ module.exports = (sequelize) => {
     id:{                   //info dentro de objeto
       type: DataTypes.STRING(3),
       allowNull:false,  
-      primaryKey:true
+      primaryKey:true,
     },
     name: {
       type: DataTypes.STRING, //info de name dentro de objeto
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING, //dentro de array
+      type: DataTypes.STRING,
       allowNull: false,
     },
     continents: {
-      type: DataTypes.STRING, 
+      type: DataTypes.STRING,
       allowNull: false,
     },
     capital: {
-      type: DataTypes.STRING, //dentro de array
+      type: DataTypes.STRING,
       allowNull: false,
     },
     subregion: {
@@ -40,8 +40,4 @@ module.exports = (sequelize) => {
   });
 };
 
-//   continents: {
-//   type: Datatypes.ENUM,
-//   values: ["Africa", "America", "Asia", "Europe", "Oceania", "Polar", ""], 
-//   allowNull: false
-// },
+
