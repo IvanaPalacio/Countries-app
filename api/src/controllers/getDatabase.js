@@ -44,8 +44,27 @@ const countryAllName = async (name) => {
     return countryName;
 }
 
+const countryIdentifier = async (id) => {
+    let countryId = await Country.findAll({
+        attributes: [ 'id', 'name', 'image', 'continents', 'capital' , 'population', 'area', 'subregion' ],
+        where:{
+            id:{
+                [Op.eq]: id
+            }
+        },
+        include: Touring
+    })
+    
+    //var countryId = await Country.findByPk(id);
+    return countryId
+}
 
 
+
+const getActivity = async () => {
+    let activities = await Touring.findAll();
+    return activities
+}
 
 
 // id: e.cca3,
@@ -60,5 +79,7 @@ const countryAllName = async (name) => {
 
 module.exports = {
     getDatabase,
-    countryAllName
+    countryAllName,
+    countryIdentifier,
+    getActivity
 }

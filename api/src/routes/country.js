@@ -3,15 +3,15 @@
 const express = require('express');
 const router = express.Router();
 const {Country, Touring, country_touring} = require('../db');
-const {getDatabase, countryAllName} = require('../controllers/getDatabase.js');
+const {getDatabase, countryAllName, countryIdentifier} = require('../controllers/getDatabase.js');
 const axios = require('axios');
 
 router.get('/', async (req, res, next) => {
     try{
         const {name} = req.query;    //filtro por query los nombres
-        if(name) {  //si contiene name
+        if(name){  //si contiene name
             const filterByName = await countryAllName(name) 
-            res.status(200).json(filterByName.length ? filterByName : [{msj: 'No se encontro el nombre del pais'}]);
+            res.status(200).send(filterByName.length ? filterByName : [{msj: 'No se encontro el nombre del pais'}]);
         }else{
             const all = await getDatabase()
             res.status(200).json(all);
@@ -21,16 +21,43 @@ router.get('/', async (req, res, next) => {
     };
 });
 
-router.post('/', (req, res, next) => {
-    res.send('soy post/countries')
-})
 
-router.put('/', (req, res, next) => {
-    res.send('soy put/countries')
-})
+router.get('/:idPais', async (req, res, next) => {
+    try{
+        var { idPais } = req.params
+        var particularDetail = await countryIdentifier(idPais)
+        res.status(200).send(particularDetail)
+    }catch (error) {
+        next(error)
+    }
+});
 
-router.delete('/', (req, res, next) => {
-    res.send('soy delete/countries')
-})
+
+router.post('/activity', async (req,res) => {
+    const { 
+        name,
+        difficulty,
+        duration,
+        season,
+        countries
+    } = req.body;
+try{    
+    const [newActivity, created] = await Touring.findOrCreate({
+        where:{name: name},
+        defaults: {
+            difficulty,
+            duration,
+            season
+        }
+    });
+    for(let element of countries ){
+        let country = await Country.findByPk(element);
+        await country.addTouring(newActivity);
+    }
+    res.json("Actividad creada exitosamente");
+}catch(err){
+    res.json({mensaje: "No se pudo crear la actividad"})
+    }
+});
 
 module.exports = router;

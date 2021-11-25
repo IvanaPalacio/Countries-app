@@ -1,21 +1,27 @@
-const { Router } = require('express')
-const router = Router()
+// const { Router } = require('express')
+// const router = Router()
+// const {getActivity} = require('../controllers/getDatabase.js')
+const express = require('express');
+const router = express.Router();
+// const {Country, Touring, country_touring} = require('../db');
+// const {getDatabase, countryAllName, countryIdentifier} = require('../controllers/getDatabase.js');
+const axios = require('axios');
 
-router.get('/activity', (req, res, next) => {
-    res.send('soy get/touring')
-})
+// router.post('/activity',  async (req,res) => {
+//     activityPost(req,res)
+// });
 
-router.post('/activity', (req, res, next) => {
-    res.send('soy post/touring')
-})
 
-router.put('/activity', (req, res, next) => {
-    res.send('soy put/touring')
-})
+// const activityPost = async(req, res) => {
 
-router.delete('/activity', (req, res, next) => {
-    res.send('soy delete/touring')
-})
 
+router.get('/activity', async (req,res,next) => {
+    try {
+        const resposeActivity = await getActivity()
+        res.status(200).send(resposeActivity)
+    } catch (error) {
+        next(error)
+    }
+});
 
 module.exports = router
