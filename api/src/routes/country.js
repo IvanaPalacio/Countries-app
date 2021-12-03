@@ -33,31 +33,5 @@ router.get('/:idPais', async (req, res, next) => {
 });
 
 
-router.post('/activity', async (req,res) => {
-    const { 
-        name,
-        difficulty,
-        duration,
-        season,
-        countries
-    } = req.body;
-try{    
-    const [newActivity, created] = await Touring.findOrCreate({
-        where:{name: name},
-        defaults: {
-            difficulty,
-            duration,
-            season
-        }
-    });
-    for(let element of countries ){
-        let country = await Country.findByPk(element);
-        await country.addTouring(newActivity);
-    }
-    res.json("Actividad creada exitosamente");
-}catch(err){
-    res.json({mensaje: "No se pudo crear la actividad"})
-    }
-});
 
 module.exports = router;
