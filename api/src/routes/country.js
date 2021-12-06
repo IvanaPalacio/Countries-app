@@ -26,12 +26,57 @@ router.get('/:idPais', async (req, res, next) => {
     try{
         var { idPais } = req.params
         var particularDetail = await countryIdentifier(idPais)
-        res.status(200).send(particularDetail)
+        res.status(200).json(particularDetail)
     }catch (error) {
         next(error)
     }
 });
 
+//get Country
 
+
+
+
+
+//get country
+// const { name } = req.query;
+
+// try {
+//   const countriesDb = await getFromDb();
+
+//   if (!name) {
+//     return res.send(countriesDb);
+//   } else {
+//     const nameGood =
+//       name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+
+//     const nameMatch = await Country.findAll({
+//       //cambiar por findOne
+//       where: {
+//         name: {
+//           [Op.like]: `%${nameGood}%`,
+//         },
+//       },
+//       include: {
+//         model: Activity,
+//         attributes: [
+//           "name",
+//           "difficulty",
+//           "duration",
+//           "season",
+//         ],
+//         through: { attributes: [] },
+//       },
+//     });
+//     nameMatch.length === 0
+//       ? res
+//           .status(404)
+//           .send("We're sorry, no matches were found for your search")
+//       : res.status(200).send(nameMatch);
+//   }
+// } catch (e) {
+//   console.log(e);
+// }
+// };
 
 module.exports = router;

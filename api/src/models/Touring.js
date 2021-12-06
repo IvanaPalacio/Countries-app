@@ -9,14 +9,14 @@ module.exports = (sequelize) => {
             unique: true
         },
         difficulty: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.ENUM('1', '2', '3', '4', '5'),
         },
         duration: {
             type: DataTypes.INTEGER,
         },
         season: {
             type: DataTypes.ENUM,
-            values: ['verano', 'otoño', 'invierno', 'primavera']
+            values: ['spring', 'summer', 'fall', 'winter']
         },
     });
 };
