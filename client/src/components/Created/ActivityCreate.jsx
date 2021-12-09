@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {postActivity, getAllActivities, getAllCountries} from '../../actions/index'
 import {useDispatch, useSelector} from 'react-redux';
+import Button from '../Button/Button';
 //El useHistory es un método del router y lo que hace es redirigir a la ruta que yo le diga.
 export default function CharacterCreate(){
     const dispatch = useDispatch();
@@ -78,7 +79,7 @@ console.log(input)
 
     return(
         <div>
-            <Link to= '/home'><button>Volver</button></Link>
+            <Link to= '/home'><Button>Volver</Button></Link>
             <h1>Creá tu actividad</h1>
             <form onSubmit={(e) => handleSubmit(e)}>     
                 <div>
@@ -183,7 +184,7 @@ console.log(input)
                 <ul>
                     <li>{input.countries.map(el => el + ", " )}</li>
                 </ul>
-                <button type="submit">Create activity</button>
+                <Button type="submit">Create activity</Button>
 
             </form>
         </div>

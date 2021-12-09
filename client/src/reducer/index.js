@@ -3,7 +3,7 @@ const initialState = {
     countries: [],
     countries2: [],
     activity: [],
-    detailCountryById: []
+    detailCountryById: [] 
 }
 
 function rootReducer(state = initialState, action ) {
@@ -15,8 +15,10 @@ function rootReducer(state = initialState, action ) {
             countries2 : action.payload
         }
         case 'COUNTRY_DETAIL_BY_ID_CARD':
+            console.log('action',action.payload)
             return {
-                ...state, detailCountryById: action.payload
+                ...state,
+                detailCountryById: action.payload
             }
         case 'GET_ACTIVITY':
             return{
@@ -87,19 +89,29 @@ function rootReducer(state = initialState, action ) {
                     ...state,
                 }
             case "FILTER_BY_ACTIVITY":
-                const countryActivity = state.countries2;
-                console.log(state.countries2)
-                const countryFounded = countryActivity.filter((c) => {
-                    if (c.length > 0) {
-                    for (let i = 0; i < c.length; i++) {
-                    if (c[i].name === action.payload) return c;
+                const countryFilter = state.countries2;
+                console.log('hola',action.payload)
+                let countriesByActivity = [];
+                if (action.payload === "all") {
+                    countriesByActivity = countryFilter;
+                } else {
+                    console.log('hola2',countryFilter)
+                    countriesByActivity = countryFilter.filter((c) => {
+                        if (c.tourings) {
+                            for (let i = 0; i < c.tourings.length; i++) {
+                                if (c.tourings[i].name === action.payload) {
+                                    console.log(c.tourings[i].name)
+                                    return c;
+                                }
+                            }
                         }
-                    }
                     });
-                    return {
+                }
+                console.log('superFiltro',countriesByActivity);
+                return {
                     ...state,
-                    countries: countryFounded,
-                    };
+                    countries: countriesByActivity
+                }
             default:
             return state;
             
@@ -108,4 +120,20 @@ function rootReducer(state = initialState, action ) {
 
 export default rootReducer;
 
+
+// case "FILTER_BY_ACTIVITY":
+//     const countryActivity = state.countries2;
+//     console.log('filtro&paises1',state.countries2)
+//     const countryFounded = countryActivity.filter((c) => {
+//         if (c.length > 0) {
+//         for (let i = 0; i < c.length; i++) {
+//         if (c[i].name === action.payload) return c;
+//             }
+//         }
+//     });
+//     console.log('filtro&paises2',countryFounded)
+//         return {
+//         ...state,
+//         countries: countryFounded,
+//         };
 

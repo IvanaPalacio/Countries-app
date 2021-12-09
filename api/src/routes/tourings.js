@@ -44,7 +44,7 @@ router.post('/', async (req,res) => {
       
           const countriesDb = await Country.findAll({
             where: { name: {
-                [Op.or]: ['Argentina']
+                [Op.or]: countries
               }
             },
           });

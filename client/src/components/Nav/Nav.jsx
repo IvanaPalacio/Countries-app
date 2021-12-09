@@ -28,11 +28,11 @@ export default function Nav(){
             <Link to = '/'>
                 <Button>Inicio</Button>
             </Link>
-            <Link to= '/activity'>
+            <Link to= '/activityCreate'>
                 <Button>Activity</Button>
             </Link>
         {/* </Header> */}
-            <SearchBar/>
+            
 </>)
 }
 

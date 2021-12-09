@@ -14,8 +14,8 @@ function App(){
       <Switch>
         <Route exact path = '/' component={LandingPage}/>
         <Route path = '/home' component={Home}/>
-        <Route path = '/activity' component={ActivityCreate}/>
-        <Route path = '/country/' component={Detail}/>
+        <Route path = '/activityCreate' component={ActivityCreate}/>
+        <Route path = '/country' component={Detail}/>
       </Switch> 
       <GlobalFonts/>
     </div>

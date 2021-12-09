@@ -8,14 +8,10 @@ const axios = require('axios');
 
 router.get('/', async (req, res, next) => {
     try{
-        const {name} = req.query;    //filtro por query los nombres
-        if(name){  //si contiene name
-            const filterByName = await countryAllName(name) 
-            res.status(200).send(filterByName.length ? filterByName : [{msj: 'No se encontro el nombre del pais'}]);
-        }else{
-            const all = await getDatabase()
-            res.status(200).json(all);
-        }
+        const {name = ''} = req.query;    //filtro por query los nombres
+        console.log(name)
+        const Country = await countryAllName(name)
+        return res.status(200).json(Country)
     }catch(err){
         next(err);
     };

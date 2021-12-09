@@ -31,14 +31,15 @@ const getDatabase = async ()=>{
 }
 
 const countryAllName = async (name) => {
-    name = name[0].toUpperCase() + name.slice(1)
+    name = name.length ? name[0].toUpperCase() + name.slice(1) : name;
     var countryName = await Country.findAll({
         attributes: [ 'id', 'name', 'image', 'continents', 'population' ],
         where: {
             name: {
                 [Op.startsWith]: name
             }
-        }
+        },
+        include: Touring
     });
     console.log(countryName);
     return countryName;

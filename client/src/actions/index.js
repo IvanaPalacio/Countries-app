@@ -36,7 +36,7 @@ export function filterByName(payload){
 
 export function getAllActivities() {
     return async function(dispatch) {    
-        var json = await axios.get('http://localhost:3001/activity', {
+        var json = await axios.get('http://localhost:3001/activityCreate', {
         });         
         return dispatch({
             type: 'GET_ACTIVITY',
@@ -70,7 +70,7 @@ export function SearchCountries(name) {
 
 export function postActivity(payload) { //lo que me llega por front para pasar por esa ruta al back
     return async function(dispatch) {    
-        const addingActivity = await axios.post('http://localhost:3001/activity', payload); 
+        const addingActivity = await axios.post('http://localhost:3001/activityCreate', payload); 
         console.log(addingActivity)        
         return addingActivity;
     }
@@ -80,6 +80,7 @@ export function CountryById(id) {
     return async function(dispatch) {
         try {
             const response = await axios.get(`http://localhost:3001/countries/${id}`)
+            console.log('idNuevo', id)
             console.log("Action ID:",response.data)
             return dispatch({
                 type: 'COUNTRY_DETAIL_BY_ID_CARD',

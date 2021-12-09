@@ -1,3 +1,11 @@
+/* estilos globales */
+@import "./components/styles/normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=Codystar&family=Montserrat:wght@300;400;500;700&display=swap');
+
+:root{
+    font-family: 'Montserrat', sans-serif;
+}
+
 body {
   background: url('travel-the-world-earth-statue-famous-wallpaper-preview-edit.png');
   background-position: center;
@@ -16,3 +24,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
