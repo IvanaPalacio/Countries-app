@@ -12,7 +12,7 @@ export default function Nav(){
     background: white;
     cursor: pointer;
     font-size: 12px;
-    margin: 1em;
+    margin: 3em;
     padding: 4px 12px;
     border: 3px solid #427ed7;
     border-radius: 5px;
@@ -22,17 +22,34 @@ export default function Nav(){
         background:  #427ed7 ;
     }
     `
+    const NavBar = styled.div`
+    background: #003580;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-attachment: fixed;
+    background-size: cover;
+    `
+    const LogoImg = styled.img`
+    width: 200px;
+    height: 100px;
+`
 
     return(<>
-        {/* <Header>         */}
+        <NavBar>
+        <LogoImg src={Logo} /> 
+        <SearchBar/>
             <Link to = '/'>
-                <Button>Inicio</Button>
+                <Button>Landing</Button>
             </Link>
+            <Link to= '/home'>
+                <Button>All countries</Button>
+            </Link> 
             <Link to= '/activityCreate'>
                 <Button>Activity</Button>
             </Link>
-        {/* </Header> */}
-            
+        </NavBar>   
 </>)
 }
 

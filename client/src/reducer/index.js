@@ -121,19 +121,3 @@ function rootReducer(state = initialState, action ) {
 export default rootReducer;
 
 
-// case "FILTER_BY_ACTIVITY":
-//     const countryActivity = state.countries2;
-//     console.log('filtro&paises1',state.countries2)
-//     const countryFounded = countryActivity.filter((c) => {
-//         if (c.length > 0) {
-//         for (let i = 0; i < c.length; i++) {
-//         if (c[i].name === action.payload) return c;
-//             }
-//         }
-//     });
-//     console.log('filtro&paises2',countryFounded)
-//         return {
-//         ...state,
-//         countries: countryFounded,
-//         };
-

@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {SearchCountries} from '../../actions/';
 import {Filter} from '../Filter/Filter';
+import styled from './SearchBar.module.css';
 
 export function SearchBar(){
 
@@ -23,7 +24,7 @@ export function SearchBar(){
         dispatch(SearchCountries(name))
     }
     return(
-        <div>
+        <div className={styled.buscador}>
             <form>
             <input type='search' placeholder = 'buscar...' onChange={(e) => handleInputChange(e)}/>
             <button type='submit' value='Buscar' onClick = {(e) => handleSubmit(e)}>Search</button>

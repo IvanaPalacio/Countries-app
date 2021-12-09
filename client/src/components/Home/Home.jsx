@@ -5,9 +5,9 @@ import {getAllCountries, filterPopulation, filterCountryByContinent, filterByNam
 import {Link, useHistory} from 'react-router-dom';
 import Card from '../Card/Card';
 import Paginado from '../Paginado/Paginado';
-import {CountryCardLists} from '../Paginado/Style-CardList.jsx';
+import {CountryCardLists, Container, Container2} from '../Paginado/Style-style.jsx';
 import Nav from '../Nav/Nav';
-import SearchBar from '../SearchBar/SearchBar';
+
 //STYLES
 import ReactDOM from 'react-dom';
 import "../../index.css";
@@ -74,44 +74,46 @@ console.log('3actividad desde el reducer', allActivities)
     console.log('llamando countries',allCountries)
     return(
         <div>
-            <br></br>
-            <div>
-                <Nav/>
-                <SearchBar/>
-                <Button onClick={e=>{handleClick(e)}}>
-                    volver a cargar todos los países
-                </Button>
-            </div>
-            <div>
-                    <select onChange = {e => handleSort(e)}>
-                        <option value = 'none'>Población</option>           
-                        <option value= 'ASC'>población asc</option>
-                        <option value= 'DESC'>población desc</option>
-                    </select>
-                    <select onChange = {e => handleFilterByName(e)}> 
-                        <option value = 'none'>País</option>
-                        <option value= 'name_asc'>Pais asc</option>
-                        <option value= 'name_desc'>Pais desc</option>
-                    </select>
-                <div>
-                    <select onChange = {e =>  handleFilterByContinent(e)}> 
-                        <option value="">Search by Continent</option>
-                        <option value="All">All Countries</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Oceania">Oceania</option>
-                        <option value="South America">South America</option>
-                        <option value="North America">North America</option>
-                        <option value="Africa">Africa</option>
-                        <option value="Asia">Asia</option>
-                        <option value="Antarctica">Antarctic</option>
-                    </select>
-                </div>
-                    <select onChange = {e => handleFilterByActivity(e)}>
-                        <option value = 'none'>Actividades</option>
-                        <option value = 'all'>All</option>
-                        {console.log(allActivities)}
-                        {allActivities && allActivities.map(activity => <option value = {activity.name}  key={activity.id}> {activity.name} </option>)}
-                    </select>
+            <div> 
+                    <Nav/>
+                <Container>
+                    <Container2>
+                    <div>
+                        <Button onClick={e=>{handleClick(e)}}>
+                                    reload all countries
+                        </Button>
+                        <select onChange = {e => handleSort(e)}>
+                            <option value = 'none'>Population</option>           
+                            <option value= 'ASC'>Population asc</option>
+                            <option value= 'DESC'>Population desc</option>
+                        </select>
+                        <select onChange = {e => handleFilterByName(e)}> 
+                            <option value = 'none'>Country</option>
+                            <option value= 'name_asc'>Country asc</option>
+                            <option value= 'name_desc'>Country desc</option>
+                        </select>
+
+                        <select onChange = {e =>  handleFilterByContinent(e)}> 
+                            <option value="">Search by Continent</option>
+                            <option value="All">All Countries</option>
+                            <option value="Europe">Europe</option>
+                            <option value="Oceania">Oceania</option>
+                            <option value="South America">South America</option>
+                            <option value="North America">North America</option>
+                            <option value="Africa">Africa</option>
+                            <option value="Asia">Asia</option>
+                            <option value="Antarctica">Antarctic</option>
+                        </select>
+
+                        <select onChange = {e => handleFilterByActivity(e)}>
+                            <option value = 'none'>activities</option>
+                            <option value = 'all'>All</option>
+                            {console.log(allActivities)}
+                            {allActivities && allActivities.map(activity => <option value = {activity.name}  key={activity.id}> {activity.name} </option>)}
+                        </select>
+                    </div>
+                        </Container2>
+                </Container>    
                 <br></br>
                 <Paginado
                     countriesPerPage = {countriesPerPage}

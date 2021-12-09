@@ -1,0 +1,90 @@
+/* .card{
+    border-style: solid; 
+    border-width: 1px;
+    border-color: black; 
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr, 2fr;
+    align-items: center;
+    margin-top: 1em;
+} */
+
+/* .card{display: grid;
+background: #0e959586;
+width: 264px;
+box-shadow: 0 0 7px 2px rgba(0, 0, 0, .03);
+border-radius: 5px;
+margin: 1em; 
+overflow: hidden;
+padding: 4em 2em;
+grid-row-gap: 2.3em; 
+justify-content: center;
+}  */
+
+.card {
+    padding: 10px 1px;
+    background: #0e959586;
+    width: 220px;
+    height: 235px;
+    z-index: -5;
+    font-size: 0.8rem;
+    font-family: "Hammersmith One", sans-serif;
+    border-radius: 10px;
+    transition:opacity 200ms;
+    margin-left: 35px;
+    } 
+
+.cityName{
+    grid-column: 1 /span 2; 
+    font-weight: 50;
+    color: white;
+}
+
+.imgStyle{
+    /* grid-column: 1 /span 2; */
+
+}
+.imgStyle:hover{
+    opacity: 1;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+
+.verMasButton{
+    background-color: var(--btn-color-background);
+    border-color: var(--btn-color-background);
+    color: darkblue;
+
+    transition: 250ms;
+    align-items: center;
+}
+
+.verMasButton:hover{
+color: white;
+background-color: var(--btn-color-background);
+}
+
+.data {
+    color: var(--others-color);
+    font-size: 0.55rem;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.11em;
+    width: 100%;
+    top: 80%;
+}
+    .data label {
+    display: block;
+    text-align: left;
+    margin-left: 3%;
+    color: white;
+    font-size: 1.17em;
+}
+    .da {
+    display: block;
+    text-align: right;
+    margin: 1% 3%;
+    font-size: 1.17em;
+    color: white;
+}
+
