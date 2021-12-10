@@ -8,23 +8,26 @@ import Logo from '../LandingPage/Logo/bellavita.png';
 export default function Nav(){
 
 
-    const Button = styled.button`
-    background: white;
+    const Button = styled.div`
+    background: #003580;
     cursor: pointer;
     font-size: 12px;
-    margin: 3em;
+    font-family: 'holis';
+    margin: 45px;
     padding: 4px 12px;
-    border: 3px solid #427ed7;
-    border-radius: 5px;
-    transition: all .2s ease;
+    // border: 3px solid #427ed7;
+    // border-radius: 5px;
+    // transition: all .2s ease;
+    // text-align: 1.17em;
+    color: white;
 
-    &:hover{
-        background:  #427ed7 ;
-    }
+    // &:hover{
+    //     background:  #427ed7;
+    // }
     `
     const NavBar = styled.div`
     background: #003580;
-    padding: 0px;
+    padding: -20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,7 +36,7 @@ export default function Nav(){
     `
     const LogoImg = styled.img`
     width: 200px;
-    height: 100px;
+    height: 115px;
 `
 
     return(<>

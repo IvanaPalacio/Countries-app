@@ -26,22 +26,22 @@ function rootReducer(state = initialState, action ) {
                 activity : action.payload
             }
         case 'FILTER_POPULATION':
-            let sortedArr = action.payload === 'DESC' ? 
+            let sortedArr = action.payload === 'ASC' ? 
             state.countries.sort(function(a,b){
-            if(a.name > b.name){
+            if(a.population > b.population){
             return 1;
             }
-            if(b.name > a.name){
+            if(b.population > a.population){
                 return -1;
             }
             return 0;
         }) : 
         state.countries.sort(function (a,b){
-            if(a.name > b.name){
-                return -1;
-            }
-            if(b.name > a.name){
+            if(a.population < b.population){
                 return 1;
+            }
+            if(b.population < a.population){
+                return -1;
             }return 0;
         });
         return{

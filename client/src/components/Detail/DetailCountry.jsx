@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from "react";
 import Nav from '../Nav/Nav'
 import {CountryById} from '../../actions';
+import styles from './DetailCountry.module.css';
 
 export function CountryDetailById(props) {
     const country = useSelector((state) => state.detailCountryById)
@@ -17,32 +18,33 @@ export function CountryDetailById(props) {
         return (
         <div>
             <Nav/>    
-            <div>
-                <h2>{country[0]?.name}</h2>
-                <img src= {country[0]?.image} alt="Image not found" width='200px' height='200px'/>
-                <h3>Code: </h3>
-                <h4>{country[0]?.id}</h4>
-                <h3>capital: </h3>
-                <h4>{country[0]?.capital}</h4>
-                <h3>subregion: </h3>
-                <h4>{country[0]?.subregion}</h4>
-                <h3>area: </h3>
-                <h4>{country[0]?.area}</h4>
-                <h3>population: </h3>
-                <h4>{country[0]?.population}</h4>
-                
-                <strong>Activities:</strong>
-                <div className="detailActivities">
-                    { activityDetail?.map((breed, index) => {
-                        return(
-                            <div>
-                                <h4>{breed.name}</h4>
-                                <div>{breed.difficulty}</div>
-                                <div>{breed.duration}</div>
-                                <div>{breed.season}</div>
-                            </div>
-                            )
-                    })}
+            <div className={styles.card}>
+                <fragment className = {styles.imgStyle}>
+                    <img src= {country[0]?.image} alt="Image not found" width='200px' height='200px'/>
+                </fragment>
+                <div className={styles.daa}>
+                    <div className={styles.da}>
+                        <h2>{country[0]?.name}</h2>
+                        <h4>Code:   {country[0]?.id}</h4>
+                        <h4>capital:    {country[0]?.capital}</h4>
+                        <h4>subregion:  {country[0]?.subregion}</h4>
+                        <h4>area:   {country[0]?.area}</h4>
+                        <h4>population: {country[0]?.population}</h4>
+                        
+                        <strong></strong>
+                        <div className="detailActivities">   
+                        { activityDetail?.map((breed, index) => {
+                                return(
+                                    <div>
+                                        <h2>Activities: {breed.name}</h2>
+                                        <div>Difficulty: {breed.difficulty}</div>
+                                        <div>Duration: {breed.duration}</div>
+                                        <div>Season: {breed.season}</div>
+                                    </div>
+                                    )
+                            })}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
