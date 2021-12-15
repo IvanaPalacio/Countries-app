@@ -41,9 +41,27 @@ const countryAllName = async (name) => {
         },
         include: Touring
     });
-    console.log(countryName);
+    console.log('name5',countryName);
     return countryName;
 }
+
+///////////////////////////////actividad de exposición//////////////////////////
+
+// const continentsAllName = async (continents) => {
+//     console.log('getdataBase17',continents)
+//     continents = continents.length ? continents[0].toUpperCase() + continents.slice(1) : continents;
+//     var countryName = await Country.findAll({
+//         attributes: [ 'id', 'name', 'image', 'continents', 'population' ],
+//         where: {
+//             name: {
+//                 [Op.startsWith]: continents
+//             }
+//         },
+//         include: Touring
+//     });
+//     console.log('continents5',continentName);
+//     return countryName;
+// }
 
 const countryIdentifier = async (id) => {
     let countryId = await Country.findAll({

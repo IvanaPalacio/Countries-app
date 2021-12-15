@@ -4,6 +4,7 @@ const initialState = {
     countries2: [],
     activity: [],
     detailCountryById: [] 
+
 }
 
 function rootReducer(state = initialState, action ) {
@@ -79,7 +80,16 @@ function rootReducer(state = initialState, action ) {
                 countries: continentFound,
             };
             case 'SEARCH_COUNTRY': 
-            console.log(action.payload)
+            console.log('name3',action.payload)
+                return{
+                    ...state,
+                    countries: action.payload
+            }
+            /////////////actividad de exposición /////////////////////////////////
+            case 'SEARCH_CONTINENTS': 
+            console.log('continents3',action.payload)
+            // const variable = state.countries2;
+            //     const variable2 = variable.filter((e) => e.continents === action.payload)
                 return{
                     ...state,
                     countries: action.payload

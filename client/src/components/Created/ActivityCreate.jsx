@@ -39,7 +39,9 @@ console.log(input)
             ...input,
             countries: [...input.countries, e.target.value]
         })
+        console.log('verificando1',input.countries)
     }
+    console.log('verificando2',input.countries)
 
     async function handleSubmit(e){
         e.preventDefault();

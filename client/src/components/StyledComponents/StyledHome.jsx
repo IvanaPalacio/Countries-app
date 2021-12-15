@@ -24,8 +24,8 @@ transition: all .2s ease;
 }
 `
 const FlexContainer2 = styled.div`
-    // border: 1px solid green;
-    background: #003580;
+    border: 1px solid green;
+    background-color: #003580;
     padding: 0px;
     display: flex;
     flex-direction: row;

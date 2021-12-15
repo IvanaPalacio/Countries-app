@@ -7,8 +7,7 @@
     --btn-color-background: var(--color-greenWater)
 }
 
-body {
-  background: url('travel-the-world-earth-statue-famous-wallpaper-preview-edit.png');
+/* body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -17,7 +16,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

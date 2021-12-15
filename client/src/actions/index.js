@@ -48,7 +48,7 @@ export function SearchCountries(name) {
     return async function(dispatch) {
         try {
             let json = await axios.get(`http://localhost:3001/countries?name=${name}`)
-                console.log(json)
+                console.log('name2',json)
             return dispatch({
                     type: 'SEARCH_COUNTRY',
                     payload: json.data
@@ -58,7 +58,31 @@ export function SearchCountries(name) {
             console.log(error)
         }
     }
-}  
+} 
+///////////////////////// ejercicio de exposición /////////////////////////////////////////
+// export function SearchContinents(continents) {
+//     return async function(dispatch) {
+//         try {
+//             let json = await axios.get(`http://localhost:3001/countries?continents=${continents}`)
+//                 console.log('continents2',json)
+//             return dispatch({
+//                     type: 'SEARCH_CONTINENTS',
+//                     payload: json.data
+//             })
+//         } 
+//             catch(error) {
+//             console.log(error)
+//         }
+//     }
+// } 
+
+
+export function SearchContinents(payload) {
+    return {
+        type: "SEARCH_CONTINENTS",
+        payload,
+    };
+}
 
 export function postActivity(payload) { //lo que me llega por front para pasar por esa ruta al back
     return async function(dispatch) {    

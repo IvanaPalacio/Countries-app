@@ -7,6 +7,7 @@ import Card from '../Card/Card';
 import Paginado from '../Paginado/Paginado';
 import {CountryCardLists, Container, Container2, P, ContainerMaster, Select, Option} from '../Paginado/Style-style.jsx';
 import Nav from '../Nav/Nav';
+import styles from './ImageBackground.module.css';
 
 //STYLES
 import ReactDOM from 'react-dom';
@@ -22,13 +23,13 @@ export default function Home(){
     const dispatch = useDispatch()
     const allCountries = useSelector((state) => state.countries)
     const allActivities = useSelector((state) => state.activity)
-console.log('1actividad desde el reducer', allActivities)
+console.log('1actividad desde el reducer', allCountries)
     const [currentPage, setCurrentPage] = useState(1)
     const [countriesPerPage, setcountriesPerPage] = useState(10)
     const [orden, setOrden] = useState('')
     const indexOfLastCountry = currentPage * countriesPerPage  
-    const indexOfFirstCountry = indexOfLastCountry - countriesPerPage
-    const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry)
+    const indexOfFirstCountry = indexOfLastCountry - countriesPerPage   
+    const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry)   
 
     const paginado = (pageNumber) =>{ 
         setCurrentPage(pageNumber)
@@ -73,7 +74,7 @@ console.log('3actividad desde el reducer', allActivities)
 
     console.log('llamando countries',allCountries)
     return(
-        <div>
+        <div className ={styles.HomePage}>
             <div> 
                     <Nav/>
                 <Container>

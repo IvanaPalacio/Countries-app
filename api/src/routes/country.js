@@ -3,13 +3,13 @@
 const express = require('express');
 const router = express.Router();
 const {Country, Touring, country_touring} = require('../db');
-const {getDatabase, countryAllName, countryIdentifier} = require('../controllers/getDatabase.js');
+const {getDatabase, countryAllName, countryIdentifier, continentsAllName} = require('../controllers/getDatabase.js');
 const axios = require('axios');
 
 router.get('/', async (req, res, next) => {
     try{
         const {name = ''} = req.query;    //filtro por query los nombres
-        console.log(name)
+        console.log('name4',name)
         const Country = await countryAllName(name)
         return res.status(200).json(Country)
     }catch(err){
@@ -27,6 +27,31 @@ router.get('/:idPais', async (req, res, next) => {
         next(error)
     }
 });
+
+
+/////////////actividad de exposición////////////
+
+// router.get('/', async (req, res, next) => {
+//     try{
+//         const {continents = ''} = req.query;    //filtro por query los nombres
+//         console.log('continents4',continents)
+//         const Continente = await continentsAllName(continents)
+//         return res.status(200).json(Continente)
+//     }catch(err){
+//         next(err);
+//     };
+// });
+
+
+
+
+
+
+
+
+
+
+
 
 //get Country
 

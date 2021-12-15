@@ -48,6 +48,15 @@ export default function StyledLanding(){
         background-size: cover;
     `
 
+//     const Background = styled.body`
+//     height: 100vh;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-attachment: fixed;
+//     display: flex;
+//     background-image: url('../LandingPage/travel-the-world-earth-statue-famous-wallpaper-preview-edit.png');
+//     justify-content: center;
+// `
 
 ////////////////////////////Pruebas///////////////////////////////////////
 
@@ -160,10 +169,9 @@ export default function StyledLanding(){
             <Link to = '/home'>
                     <Button>Ingresar</Button>
             </Link>
-        </FlexContainer>
+        </FlexContainer>   
+    {/* <Background/> */}
 
-
-    
     {/* <FlexContainer2>
         <HiSlide isUl isLi>
             <PrevSlide/>
