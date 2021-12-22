@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export function getAllCountries() {
     return async function(dispatch) {    
-        var json = await axios.get('http://localhost:3001/countries', {
+        var json = await axios.get('https://immense-cove-55832.herokuapp.com/countries', {
         });         
         return dispatch({
             type: 'GET_COUNTRIES',
@@ -11,6 +11,8 @@ export function getAllCountries() {
         });
     }
 }
+// http://localhost:3001/countries
+
 
 export function filterPopulation(payload){
     return{
@@ -28,7 +30,7 @@ export function filterByName(payload){
 
 export function getAllActivities() {
     return async function(dispatch) {    
-        var json = await axios.get('http://localhost:3001/activityCreate', {
+        var json = await axios.get('https://immense-cove-55832.herokuapp.com/activityCreate', {
         });         
         return dispatch({
             type: 'GET_ACTIVITY',
@@ -36,7 +38,7 @@ export function getAllActivities() {
         });
     }
 }
-
+// http://localhost:3001/activityCreate
 export const filterCountryByContinent = (payload) => {
     return {
         type: "FILTER_BY_CONTINENT",
@@ -47,7 +49,7 @@ export const filterCountryByContinent = (payload) => {
 export function SearchCountries(name) {
     return async function(dispatch) {
         try {
-            let json = await axios.get(`http://localhost:3001/countries?name=${name}`)
+            let json = await axios.get(`https://immense-cove-55832.herokuapp.com/countries?name=${name}`)
                 console.log('name2',json)
             return dispatch({
                     type: 'SEARCH_COUNTRY',
@@ -59,6 +61,9 @@ export function SearchCountries(name) {
         }
     }
 } 
+// http://localhost:3001/countries?name=${name}
+
+
 ///////////////////////// ejercicio de exposición /////////////////////////////////////////
 // export function SearchContinents(continents) {
 //     return async function(dispatch) {
@@ -86,16 +91,17 @@ export function SearchContinents(payload) {
 
 export function postActivity(payload) { //lo que me llega por front para pasar por esa ruta al back
     return async function(dispatch) {    
-        const addingActivity = await axios.post('http://localhost:3001/activityCreate', payload); 
+        const addingActivity = await axios.post('https://immense-cove-55832.herokuapp.com/activityCreate', payload); 
         console.log(addingActivity)        
         return addingActivity;
     }
 }
+// http://localhost:3001/activityCreate
 
 export function CountryById(id) {
     return async function(dispatch) {
         try {
-            const response = await axios.get(`http://localhost:3001/countries/${id}`)
+            const response = await axios.get(`https://immense-cove-55832.herokuapp.com/countries/${id}`)
             console.log('idNuevo', id)
             console.log("Action ID:",response.data)
             return dispatch({
@@ -107,6 +113,7 @@ export function CountryById(id) {
         }
     }
 }
+// http://localhost:3001/countries/${id}
 
 export function filterByActivity(payload) {
     return {
