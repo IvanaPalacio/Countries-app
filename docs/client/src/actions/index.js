@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export function getAllCountries() {
     return async function(dispatch) {    
-        var json = await axios.get('https://immense-cove-55832.herokuapp.com/countries', {
+        var json = await axios.get('https://immense-cove-55832.herokuapp.com:3001/countries', {
         });         
         return dispatch({
             type: 'GET_COUNTRIES',
@@ -11,6 +11,7 @@ export function getAllCountries() {
         });
     }
 }
+// https://immense-cove-55832.herokuapp.com
 // http://localhost:3001/countries
 
 
@@ -30,7 +31,7 @@ export function filterByName(payload){
 
 export function getAllActivities() {
     return async function(dispatch) {    
-        var json = await axios.get('https://immense-cove-55832.herokuapp.com/activityCreate', {
+        var json = await axios.get('https://immense-cove-55832.herokuapp.com:3001/activityCreate', {
         });         
         return dispatch({
             type: 'GET_ACTIVITY',
@@ -49,7 +50,7 @@ export const filterCountryByContinent = (payload) => {
 export function SearchCountries(name) {
     return async function(dispatch) {
         try {
-            let json = await axios.get(`https://immense-cove-55832.herokuapp.com/countries?name=${name}`)
+            let json = await axios.get(`https://immense-cove-55832.herokuapp.com:3001/countries?name=${name}`)
                 console.log('name2',json)
             return dispatch({
                     type: 'SEARCH_COUNTRY',
@@ -91,7 +92,7 @@ export function SearchContinents(payload) {
 
 export function postActivity(payload) { //lo que me llega por front para pasar por esa ruta al back
     return async function(dispatch) {    
-        const addingActivity = await axios.post('https://immense-cove-55832.herokuapp.com/activityCreate', payload); 
+        const addingActivity = await axios.post('https://immense-cove-55832.herokuapp.com:3001/activityCreate', payload); 
         console.log(addingActivity)        
         return addingActivity;
     }
@@ -101,7 +102,7 @@ export function postActivity(payload) { //lo que me llega por front para pasar p
 export function CountryById(id) {
     return async function(dispatch) {
         try {
-            const response = await axios.get(`https://immense-cove-55832.herokuapp.com/countries/${id}`)
+            const response = await axios.get(`https://immense-cove-55832.herokuapp.com:3001/countries/${id}`)
             console.log('idNuevo', id)
             console.log("Action ID:",response.data)
             return dispatch({
