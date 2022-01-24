@@ -59,22 +59,6 @@ export function SearchCountries(name) {
         }
     }
 } 
-///////////////////////// ejercicio de exposición /////////////////////////////////////////
-// export function SearchContinents(continents) {
-//     return async function(dispatch) {
-//         try {
-//             let json = await axios.get(`http://localhost:3001/countries?continents=${continents}`)
-//                 console.log('continents2',json)
-//             return dispatch({
-//                     type: 'SEARCH_CONTINENTS',
-//                     payload: json.data
-//             })
-//         } 
-//             catch(error) {
-//             console.log(error)
-//         }
-//     }
-// } 
 
 
 export function SearchContinents(payload) {

@@ -85,15 +85,6 @@ function rootReducer(state = initialState, action ) {
                     ...state,
                     countries: action.payload
             }
-            /////////////actividad de exposición /////////////////////////////////
-            case 'SEARCH_CONTINENTS': 
-            console.log('continents3',action.payload)
-            // const variable = state.countries2;
-            //     const variable2 = variable.filter((e) => e.continents === action.payload)
-                return{
-                    ...state,
-                    countries: action.payload
-            }
             case 'POST_ACTIVITY':
                 return{
                     ...state,

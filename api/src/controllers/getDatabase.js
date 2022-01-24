@@ -45,23 +45,6 @@ const countryAllName = async (name) => {
     return countryName;
 }
 
-///////////////////////////////actividad de exposición//////////////////////////
-
-// const continentsAllName = async (continents) => {
-//     console.log('getdataBase17',continents)
-//     continents = continents.length ? continents[0].toUpperCase() + continents.slice(1) : continents;
-//     var countryName = await Country.findAll({
-//         attributes: [ 'id', 'name', 'image', 'continents', 'population' ],
-//         where: {
-//             name: {
-//                 [Op.startsWith]: continents
-//             }
-//         },
-//         include: Touring
-//     });
-//     console.log('continents5',continentName);
-//     return countryName;
-// }
 
 const countryIdentifier = async (id) => {
     let countryId = await Country.findAll({
@@ -85,15 +68,6 @@ const getActivity = async () => {
     return activities
 }
 
-
-// id: e.cca3,
-// name: e.name.common,
-// image: e.flags,
-// continents: e.continents,
-// capital: e.capital || 'capital no disponible',
-// subregion: e.subregion,
-// area: e.area,
-// population: e.population
 
 
 module.exports = {

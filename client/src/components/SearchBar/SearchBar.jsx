@@ -11,7 +11,6 @@ export function SearchBar(){
     const dispatch = useDispatch();
 
     const [name, setName] = useState('')
-    // const [continents, setContinents] = useState('')       //actividad de exposición
 
     const handleInputChange = (e) =>{
         e.preventDefault()
@@ -19,26 +18,12 @@ export function SearchBar(){
         console.log('holaa2021',e.target.value)
     }
 
-    // const handleInputChange2 = (e) =>{
-    //     e.preventDefault()
-    //     setContinents(e.target.value)
-    //     console.log('Holaa2022',e.target.value)
-    // }
-
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(SearchCountries(name))
         console.log('name1',name)
-        // e.preventDefault()
-        // dispatch(SearchContinents(continents))                                           //actividad de exposición
-        // console.log('continents1',continents)
     }
 
-    // const handleSubmit2 = (e) => {
-    //     e.preventDefault()
-    //     dispatch(SearchContinents(continents))                                                                                 // actividad de exposición
-    //     console.log('continents1',continents)
-    // }
 
     return(
         <div className={styled.buscador}>
@@ -48,7 +33,6 @@ export function SearchBar(){
             placeholder = 'buscar países' 
             name = 'nombre'
             onChange={(e) => handleInputChange(e)}/>
-            {/* <input type='text' placeholder = 'buscar...' onChange={(e) => handleInputChange2(e)}/> */}
             <button type='submit' value='Buscar' onClick = {(e) => handleSubmit(e)}>Search</button>
             </form>
         </div>
